@@ -1,6 +1,9 @@
 package tools;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class parse {
     String[] buffer;
@@ -74,5 +77,31 @@ public class parse {
             System.out.println();
             
         }
+    }
+    public static void inputTxt(Scanner scanner) {
+        boolean isValidInput = false;
+        do {
+            String fileParent = "../test/";
+            System.out.print("Masukkan sebuah string: ");
+            String userInput = scanner.nextLine();
+            String filePath = fileParent + userInput + ".txt";
+
+            try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+                String[] buffer = parse.readBufferSize(br);
+                Matrix matrix = parse.readMatrixSize(br);
+                parse.inputMatrixFromFile(br, matrix);
+                Sequence[] arrSeq = parse.inputSequencesFromFile(br);
+                parse.displayMatrix(matrix);
+                parse.displaySequences(arrSeq);
+
+                // Jika program sampai di sini, input telah valid
+                isValidInput = true;
+            } catch (FileNotFoundException e) {
+                // File tidak ditemukan
+                System.err.println("File tidak ditemukan: " + filePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } while (!isValidInput); // Loop terus menerus sampai mendapatkan input yang valid
     }
 }
