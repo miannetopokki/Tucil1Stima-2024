@@ -7,11 +7,16 @@ import java.util.Scanner;
 import tools.Matrix;
 import tools.parse;
 import tools.Sequence;
+import tools.test;
 
 public class Main {
     
+   
     public static void main(String[] args) {
+        //Deklarasi awal
         Scanner scanner = new Scanner(System.in);
+
+
         System.out.println("1. TXT:  ");
         System.out.println("2. COMMAND LINE:  ");
         System.out.println("3. EXIT  ");

@@ -3,17 +3,21 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class parse {
-    String[] buffer;
+    public static List<List<String>> raw_seq_list = new ArrayList<>();
+    
 
-    public static String[] readBufferSize(BufferedReader reader) throws IOException {
+    public static int readBufferSize(BufferedReader reader) throws IOException {
         String line;
         line = reader.readLine();
         int bufferSize = Integer.parseInt(line.trim());
-        String[] buffer = new String[bufferSize];
-        return buffer;
+        return bufferSize;
     }
     public static Matrix readMatrixSize(BufferedReader reader) throws IOException {
         String line;
@@ -78,30 +82,53 @@ public class parse {
             
         }
     }
+    public class Result {
+        public Matrix matrix;
+        public Sequence[] arrSeq;
+    
+        public Result(Matrix matrix, Sequence[] arrSeq) {
+            this.matrix = matrix;
+            this.arrSeq = arrSeq;
+        }
+    }
+    
     public static void inputTxt(Scanner scanner) {
+        
         boolean isValidInput = false;
+        
+    
         do {
             String fileParent = "../test/";
             System.out.print("Masukkan sebuah string: ");
             String userInput = scanner.nextLine();
             String filePath = fileParent + userInput + ".txt";
-
+    
             try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-                String[] buffer = parse.readBufferSize(br);
-                Matrix matrix = parse.readMatrixSize(br);
-                parse.inputMatrixFromFile(br, matrix);
-                Sequence[] arrSeq = parse.inputSequencesFromFile(br);
-                parse.displayMatrix(matrix);
-                parse.displaySequences(arrSeq);
 
-                // Jika program sampai di sini, input telah valid
+
+                int bufferSize = readBufferSize(br);
+                Matrix matrix = parse.readMatrixSize(br); 
+                inputMatrixFromFile(br, matrix);
+                Sequence[] arrSeq = parse.inputSequencesFromFile(br);
+                displayMatrix(matrix);
+                test.generateSequences(matrix,bufferSize,raw_seq_list,arrSeq);
+               
+                
+                displaySequences(arrSeq);
+                
+                // test.printSequences(raw_seq_list);
+    
+                
                 isValidInput = true;
             } catch (FileNotFoundException e) {
-                // File tidak ditemukan
+                
                 System.err.println("File tidak ditemukan: " + filePath);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } while (!isValidInput); // Loop terus menerus sampai mendapatkan input yang valid
+        } while (!isValidInput);
     }
+  
+    
+    
 }

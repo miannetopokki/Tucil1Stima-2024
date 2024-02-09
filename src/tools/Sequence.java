@@ -3,11 +3,13 @@ package tools;
 public class Sequence {
     public int points,lengthEff,i;
     public String[] Seq;
+    public boolean valid;
 
     public Sequence(int lengthEff,int points){
         this.points = points;
         this.lengthEff = lengthEff;
         this.Seq = new String[lengthEff];
+
     }
 
     public int getPoints(){
@@ -22,6 +24,7 @@ public class Sequence {
         this.Seq[i] = x; 
 
     }
+
 
 
     
