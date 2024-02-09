@@ -1,6 +1,7 @@
 package tools;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class Brute {
@@ -23,18 +24,24 @@ public class Brute {
         System.out.println("=================FINAL RESULT========================");
         if (resultList.size() > 0)
         {
-            
+            Scanner scanner2 = new Scanner(System.in);
             Result maxResult = maxPointFromResult(resultList);
             maxResult.printResult();
+            System.out.println("Execution Time: " + exeTime + " ms");
+            String outputParent = "../test/output/";
+            System.out.println("Apakah hasil output mau di save? (y/n) : ");
+            String inputCmd = scanner2.nextLine();
+            if(inputCmd.equals("y")){
+                System.out.print("Ketik nama file anda (tanpa .txt) :  ");
+                String fileName = scanner2.nextLine();
+                Save.writeToTextFile(prizeSeq,exeTime,matrix, maxResult, outputParent + fileName + ".txt");
+                scanner2.close();
+            }
         }
         else
         {
             System.out.println("No Solution");
         }
-        System.out.println("Execution Time: " + exeTime + " ms");
-        
-
-        
     }
 
     private static void explorePath(List<int[]> currentPath, int[] currentPosition, int remainingSteps, boolean isVertical,int maxSteps,Matrix matrix,List<List<String>> sequences,Sequence[] prizeSeq) {

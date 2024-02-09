@@ -17,7 +17,7 @@ public class Result {
         this.totalPoints = totalPoints;
     }
     public void printResult() {
-        System.out.println("Coords: " + listCoords);
+        System.out.println("Coords '[COL, ROW]' :  " + listCoords);
         System.out.println("Sequence: " + sequence);
         System.out.println("Total Points: " + totalPoints);
     }

@@ -94,10 +94,16 @@ public class parse {
         System.out.print("Masukkan jumlah_token_unik: ");
         int sumUniqueToken = scanner.nextInt();
         scanner.nextLine(); 
-    
+        
         System.out.print("Masukkan token: ");
         String tokens = scanner.nextLine();
         String[] arrayOfTokens = tokens.split("\\s+");
+        while (arrayOfTokens.length != sumUniqueToken) {
+            System.out.print("Jumlah Tidak valid! Masukkan token kembali : ");
+            tokens = scanner.nextLine();
+            arrayOfTokens = tokens.split("\\s+");
+            
+        }
 
         // for (String token : arrayOfTokens) {
         //     System.out.println(token);
@@ -110,6 +116,11 @@ public class parse {
         System.out.print("ukuran_matriks: ");
         String matrixSize = scanner.nextLine();
         String[] words = matrixSize.split("\\s+");
+        while (words.length != 2) {
+            System.out.print("Input tidak valid! Ketik kembali ukuran matriks (M N): ");
+            matrixSize = scanner.nextLine();
+            words = matrixSize.split("\\s+");
+        }
         Matrix matrix = new Matrix(Integer.parseInt(words[0]), Integer.parseInt(words[1]));
     
         System.out.print("jumlah_sekuens: ");
@@ -150,7 +161,7 @@ public class parse {
         
     
         do {
-            String fileParent = "../test/";
+            String fileParent = "../test/input/";
             System.out.print("Masukkan nama file (tanpa .txt): ");
             String userInput = scanner.nextLine();
             String filePath = fileParent + userInput + ".txt";
@@ -164,7 +175,6 @@ public class parse {
                 Sequence[] arrSeq = parse.inputSequencesFromFile(br);
                 displayMatrix(matrix);
                 Brute.generateSequences(matrix,bufferSize,raw_seq_list,arrSeq);
-
                 displaySequences(arrSeq);
                 
                 // test.printSequences(raw_seq_list);

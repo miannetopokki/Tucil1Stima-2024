@@ -8,6 +8,7 @@ import tools.Matrix;
 import tools.parse;
 import tools.Sequence;
 import tools.Brute;
+import tools.Save;;
 
 public class Main {
     
@@ -30,6 +31,10 @@ public class Main {
         else if(cmdMenu == 2)
         {
             parse.inputCli(scanner);
+
+        }
+        else if(cmdMenu == 3)
+        {
 
         }
         else{
