@@ -7,7 +7,7 @@ import java.util.Scanner;
 import tools.Matrix;
 import tools.parse;
 import tools.Sequence;
-import tools.test;
+import tools.Brute;
 
 public class Main {
     
@@ -29,6 +29,7 @@ public class Main {
         }
         else if(cmdMenu == 2)
         {
+            parse.inputCli(scanner);
 
         }
         else{

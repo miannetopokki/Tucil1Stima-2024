@@ -67,7 +67,7 @@ public class Brute {
                 Result result = new Result(sequence.size(), maxx); 
                 result.listCoords = listCoord;
                 result.sequence = sequence;
-                result.printResult();
+                // result.printResult();
                 resultList.add(result);
                
             }

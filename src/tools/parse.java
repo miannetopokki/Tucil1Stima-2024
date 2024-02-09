@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class parse {
     public static List<List<String>> raw_seq_list = new ArrayList<>();
@@ -69,18 +70,15 @@ public class parse {
             System.out.println();
         }
     }
-    public static void displaySequence(Sequence seq){
-        System.out.print(seq.points + " , ");
-        for (int i = 0; i < seq.lengthEff; i++) {
-            System.out.print(seq.getSeqToken(i) + " ");
-        }
-    }
+    
     public static void displaySequences(Sequence[] ses){
+        System.out.println("============Sequences========");
         for (int i = 0; i < ses.length; i++) {
-            displaySequence(ses[i]);
+            ses[i].displaySequence();
             System.out.println();
             
         }
+        System.out.println("=============================");
     }
     public class Result {
         public Matrix matrix;
@@ -91,6 +89,60 @@ public class parse {
             this.arrSeq = arrSeq;
         }
     }
+    public static void inputCli(Scanner scanner){
+        Random random = new Random();
+        System.out.print("Masukkan jumlah_token_unik: ");
+        int sumUniqueToken = scanner.nextInt();
+        scanner.nextLine(); 
+    
+        System.out.print("Masukkan token: ");
+        String tokens = scanner.nextLine();
+        String[] arrayOfTokens = tokens.split("\\s+");
+
+        // for (String token : arrayOfTokens) {
+        //     System.out.println(token);
+        // }
+    
+        System.out.print("ukuran_buffer: ");
+        int bufferSize = scanner.nextInt();
+        scanner.nextLine(); 
+    
+        System.out.print("ukuran_matriks: ");
+        String matrixSize = scanner.nextLine();
+        String[] words = matrixSize.split("\\s+");
+        Matrix matrix = new Matrix(Integer.parseInt(words[0]), Integer.parseInt(words[1]));
+    
+        System.out.print("jumlah_sekuens: ");
+        int sequens = scanner.nextInt();
+        scanner.nextLine(); 
+    
+        System.out.print("ukuran_maksimal_sekuens: ");
+        int maxSizeSequens = scanner.nextInt();
+        scanner.nextLine(); 
+
+        //Pembuatan matriks random
+        for (int i = 0; i < matrix.getRowEff(); i++) {
+            for (int j = 0; j < matrix.getColEff(); j++) {
+                int randomIndex = random.nextInt(sumUniqueToken);
+                matrix.setElmt(i, j, arrayOfTokens[randomIndex]); 
+            }
+        }
+        displayMatrix(matrix);
+
+
+        //Pembuatan sequens random
+        Sequence[] arrSeq = new Sequence[sequens];
+        for (int i = 0; i < sequens; i++) {
+            Sequence sequen = new Sequence(random.nextInt(1,maxSizeSequens), random.nextInt(30));// random points
+            for (int j = 0; j < sequen.getSeqlength(); j++) {
+                sequen.setSeqToken(j, arrayOfTokens[random.nextInt(sumUniqueToken)]);    
+            }
+            arrSeq[i] = sequen;
+            
+        }
+        displaySequences(arrSeq);
+        Brute.generateSequences(matrix,bufferSize,raw_seq_list,arrSeq);
+    }
     
     public static void inputTxt(Scanner scanner) {
         
@@ -99,7 +151,7 @@ public class parse {
     
         do {
             String fileParent = "../test/";
-            System.out.print("Masukkan sebuah string: ");
+            System.out.print("Masukkan nama file (tanpa .txt): ");
             String userInput = scanner.nextLine();
             String filePath = fileParent + userInput + ".txt";
     

@@ -18,11 +18,21 @@ public class Sequence {
     public String getSeqToken(int i){
         return Seq[i];
     }
+    public int getSeqlength()
+    {
+        return lengthEff;
+    }
 
 
     public void setSeqToken(int i,String x){
         this.Seq[i] = x; 
 
+    }
+    public void displaySequence(){
+        System.out.print(points + " , ");
+        for (int i = 0; i < lengthEff; i++) {
+            System.out.print(getSeqToken(i) + " ");
+        }
     }
 
 
