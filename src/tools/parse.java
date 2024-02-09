@@ -111,9 +111,8 @@ public class parse {
                 inputMatrixFromFile(br, matrix);
                 Sequence[] arrSeq = parse.inputSequencesFromFile(br);
                 displayMatrix(matrix);
-                test.generateSequences(matrix,bufferSize,raw_seq_list,arrSeq);
-               
-                
+                Brute.generateSequences(matrix,bufferSize,raw_seq_list,arrSeq);
+
                 displaySequences(arrSeq);
                 
                 // test.printSequences(raw_seq_list);
