@@ -1,0 +1,24 @@
+CF	FA	9F	SF	SF	SF	SF	CF	SF	CF	
+CF	R0	PO	CF	R0	2F	CF	CF	2F	ER	
+R0	PO	CF	2F	2F	CF	2F	PO	FA	FA	
+FA	2F	ER	2F	PO	PO	PO	SF	2F	CF	
+FA	R0	SF	PO	PO	R0	CF	CF	ER	ER	
+CF	9F	9F	R0	2F	2F	CF	R0	FA	FA	
+PO	SF	2F	ER	SF	CF	SF	R0	9F	9F	
+FA	SF	2F	FA	FA	2F	CF	R0	9F	FA	
+SF	SF	2F	R0	FA	9F	R0	PO	9F	9F	
+2F	CF	ER	FA	FA	FA	FA	ER	SF	R0	
+========================================
+6 Points | R0 2F R0 R0 |
+15 Points | ER 2F FA FA ER FA |
+14 Points | SF PO |
+28 Points | FA |
+1 Points | R0 PO |
+13 Points | 9F ER FA PO FA |
+24 Points | R0 R0 FA PO R0 FA SF |
+28 Points | CF 2F CF R0 PO SF |
+========================================
+Coords '[COL, ROW]' :  [[1, 2], [1, 10], [2, 10], [2, 5], [5, 5], [5, 7], [1, 7], [1, 8]]
+Sequence: [CF, 2F, CF, R0, PO, SF, PO, FA]
+Total Points: 71
+Execute Time : 22520 ms

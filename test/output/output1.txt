@@ -1,0 +1,18 @@
+BB	AA	CC	EE	
+DD	BB	FF	DD	
+EE	DD	FF	CC	
+EE	CC	FF	DD	
+DD	EE	FF	BB	
+AA	BB	EE	AA	
+AA	CC	CC	BB	
+AA	FF	EE	CC	
+AA	FF	BB	FF	
+========================================
+20 Points | DD DD |
+7 Points | CC BB |
+4 Points | AA CC EE |
+========================================
+Coords '[COL, ROW]' :  [[1, 2], [1, 5], [2, 5], [2, 7], [4, 7]]
+Sequence: [DD, DD, EE, CC, BB]
+Total Points: 27
+Execute Time : 12 ms

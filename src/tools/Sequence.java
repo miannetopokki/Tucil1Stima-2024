@@ -1,9 +1,9 @@
-package tools;
 
+package tools;
 public class Sequence {
     public int points,lengthEff,i;
     public String[] Seq;
-    public boolean valid;
+
 
     public Sequence(int lengthEff,int points){
         this.points = points;
@@ -34,10 +34,6 @@ public class Sequence {
             System.out.print(getSeqToken(i) + " ");
         }
     }
-
-
-
-    
 
     
 }

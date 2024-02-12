@@ -64,11 +64,13 @@ public class Brute {
             Sequence[] tempPrizeSeq = prizeSeq;
             
             int max = 0;
+            //pengambilan poin untuk tiap path yang diambil
             for (int i = 0; i < prizeSeq.length; i++) {
                 if(stringMatch(sequence, tempPrizeSeq[i]) == true){
                     max = max + tempPrizeSeq[i].getPoints();
                 }
             }
+            //pengambilan nilai maximal
             if (max > maxx){
                 maxx = max;
                 Result result = new Result(sequence.size(), maxx); 

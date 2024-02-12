@@ -1,0 +1,19 @@
+5G	5G	00	5G	5G	3F	
+AD	YF	YF	YF	YF	3F	
+7D	AD	3F	00	3F	00	
+3F	YF	AD	YF	YF	00	
+3F	3F	7D	AD	YF	3F	
+YF	7D	3F	YF	5G	7D	
+7D	YF	00	7D	00	3F	
+00	7D	00	5G	5G	7D	
+========================================
+20 Points | AD 00 AD |
+13 Points | 7D YF |
+8 Points | 5G 00 |
+1 Points | 00 5G |
+13 Points | 00 7D |
+========================================
+Coords '[COL, ROW]' :  [[1, 1], [1, 8], [2, 8], [2, 3], [4, 3], [4, 5], [3, 5], [3, 2]]
+Sequence: [5G, 00, 7D, AD, 00, AD, 7D, YF]
+Total Points: 54
+Execute Time : 1376 ms

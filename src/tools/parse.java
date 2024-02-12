@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class parse {
@@ -80,19 +78,15 @@ public class parse {
         }
         System.out.println("=============================");
     }
-    public class Result {
-        public Matrix matrix;
-        public Sequence[] arrSeq;
     
-        public Result(Matrix matrix, Sequence[] arrSeq) {
-            this.matrix = matrix;
-            this.arrSeq = arrSeq;
-        }
-    }
     public static void inputCli(Scanner scanner){
         Random random = new Random();
         System.out.print("Masukkan jumlah_token_unik: ");
         int sumUniqueToken = scanner.nextInt();
+        while (sumUniqueToken <= 0) {
+            System.out.print("Tidak valid! tolong jumlahnya >= 0 : ");
+            sumUniqueToken = scanner.nextInt();
+        }
         scanner.nextLine(); 
         
         System.out.print("Masukkan token: ");
@@ -174,8 +168,9 @@ public class parse {
                 inputMatrixFromFile(br, matrix);
                 Sequence[] arrSeq = parse.inputSequencesFromFile(br);
                 displayMatrix(matrix);
-                Brute.generateSequences(matrix,bufferSize,raw_seq_list,arrSeq);
                 displaySequences(arrSeq);
+                Brute.generateSequences(matrix,bufferSize,raw_seq_list,arrSeq);
+                
                 
                 // test.printSequences(raw_seq_list);
     
