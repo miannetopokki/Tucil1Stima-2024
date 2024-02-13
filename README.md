@@ -1,14 +1,14 @@
 # Tugas Kecil 1 IF2211 Strategi Algoritma
-Penyelesaian Cyberpunk 2077 Breach Protocol dengan Algoritma Brute Force
-Dibuat Oleh :   
+Solving Cyberpunk 2077 Breach Protocol with Brute Force Algorithm
+Made by :   
 | Hugo Sabam Augusto | 13522129 |
 | :---: | :---: |
 
-## Tech Stack
+## Tech
 
-**Language:** Java
-
-
+**Language:** Java\
+**Version:** "20.0.2" 2023-07-18\
+Java(TM) SE Runtime Environment (build 20.0.2+9-78)
 
 
 ## Installation
